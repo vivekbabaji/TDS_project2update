@@ -2,9 +2,9 @@ from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.responses import JSONResponse
 from typing import List, Optional
 import os
-import json
 
 from llm_parser import parse_question_with_llm
+from task_engine import run_python_code
 
 app = FastAPI()
 
@@ -17,10 +17,10 @@ async def analyze(
     files: Optional[List[UploadFile]] = File(None, description="Optional data files (csv, image, etc.)"),
     urls: Optional[str] = Form(None, description="Optional comma-separated URLs")
 ):
-    # ✅ 1. Read questions.txt
+    # ✅ 1. Read the question from uploaded file
     question_text = (await question.read()).decode("utf-8")
 
-    # ✅ 2. Save uploaded files (optional)
+    # ✅ 2. Save any uploaded files
     saved_files = []
     if files:
         for file in files:
@@ -29,24 +29,23 @@ async def analyze(
                 f.write(await file.read())
             saved_files.append(file_path)
 
-    # ✅ 3. Parse URLs (optional)
+    # ✅ 3. Parse URL list
     url_list = [url.strip() for url in urls.split(",")] if urls else []
 
-    # ✅ 4. Use LLM to analyze the question
-    try:
-        llm_response = await parse_question_with_llm(question_text)
-        try:
-            llm_steps = json.loads(llm_response)  # Try parsing JSON
-        except Exception:
-            llm_steps = llm_response  # Just keep raw string if not JSON
-    except Exception as e:
-        llm_steps = f"LLM failed: {str(e)}"
+    # ✅ 4. Get code steps from LLM
+    response = await parse_question_with_llm(
+        question_text=question_text,
+        uploaded_files=saved_files,
+        urls=url_list
+    )
 
-    # ✅ 5. Return everything
+    # ✅ 5. Execute generated code safely
+    execution_result = await run_python_code(response["code"], response["libraries"])
+
     return JSONResponse({
-        "message": "Input received successfully.",
         "question": question_text,
         "uploaded_files": saved_files,
         "urls": url_list,
-        "llm_steps": llm_steps
+        "generated_code": response,
+        "output": execution_result
     })
