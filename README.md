@@ -47,12 +47,3 @@ chmod +x start_server.sh
 # Lastly copy paste the public url
 
 
-## ☕ ---------------------------------------------
-If this script saved you time or headaches, consider buying me a coffee!  
-Your support keeps me motivated to share more useful tools.  
-
-`Vse toh sabh ek doosre ki help hi karte rehte hai. kabhi mera project/assignment poora nhi hota toh m copy kar leta doosro ka.`
-
-![Scanner](scanner.jpeg)
-
-
