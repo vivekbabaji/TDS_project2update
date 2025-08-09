@@ -98,9 +98,14 @@ async def analyze(request: Request):
     print(gpt_ans)
 
     # 7. Executing code
-    final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+    try:
+        final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+    except Exception as e:
+        gpt_ans = await answer_with_data(response["questions"]+str("Please follow the json structure"), folder=request_folder)
 
-    print(final_result)
+        print("Trying after it caught under except block-wrong json format",gpt_ans)
+        final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+        
 
     count = 0
     json_str = 1
@@ -138,6 +143,8 @@ async def analyze(request: Request):
 
     result_path = os.path.join(request_folder, "result.json")
     with open(result_path, "r") as f:
-        data = json.load(f)
-        return JSONResponse(content=data)
-    
+        try:
+            data = json.load(f)
+            return JSONResponse(content=data)
+        except Exception as e:
+            return JSONResponse({"message": f"Error occured while processing reult.json: {e}"})
