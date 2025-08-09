@@ -12,6 +12,8 @@ def ans_with_gemini(questions):
     data: {data}
 
     Answer the question based on data provided.
+    Give only the output answer in json format.
+
     """
 
 
