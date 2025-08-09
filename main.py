@@ -3,8 +3,10 @@ from fastapi.responses import JSONResponse
 from typing import List, Optional
 import os
 
-from llm_parser import parse_question_with_llm
+from llm_parser import parse_question_with_llm, answer_with_data
 from task_engine import run_python_code
+
+from gemini import ans_with_gemini
 
 app = FastAPI()
 
@@ -42,10 +44,18 @@ async def analyze(
     # ✅ 5. Execute generated code safely
     execution_result = await run_python_code(response["code"], response["libraries"])
 
+    #6. get answers from llm
+    gpt_ans = await answer_with_data(response["questions"])
+
+    gemini_ans = ans_with_gemini(response["questions"])
+
     return JSONResponse({
         "question": question_text,
         "uploaded_files": saved_files,
         "urls": url_list,
         "generated_code": response,
-        "output": execution_result
+        "output": execution_result,
+        "answers_with_gpt": gpt_ans,
+        "ans_with_gemini": gemini_ans
+
     })

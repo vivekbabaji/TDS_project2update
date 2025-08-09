@@ -1,9 +1,13 @@
-import pandas as pd
-import requests
-from bs4 import BeautifulSoup
-# Fetch the Wikipedia page
-url = 'https://en.wikipedia.org/wiki/List_of_highest-grossing_films'
-response = requests.get(url)
-# Parse the HTML content
-nsoup = BeautifulSoup(response.text, 'html.parser')
-\n\n# Find the correct table; in this case, the first or the one with a specific caption or class\n# Checking all tables and selecting the right one\ntables = soup.find_all('table', {'class': 'wikitable'})\n\n# For demonstration, assuming the first table contains the data\n# In a real scenario, inspect the page to confirm or select the correct one\ntable = tables[0]\n\n# Read the HTML table into a pandas DataFrame\ndf = pd.read_html(str(table))[0]\n\n# Inspect the DataFrame to find relevant columns\nprint(df.columns)\n\n# Assuming columns include 'Worldwide gross', 'Year', and others\n# Clean up column names if needed\n# For this example, assume 'Worldwide gross' and 'Year' are present\n\ndf['Worldwide gross'] = df['Worldwide gross'].replace({',': '', '\u0006bn': '000'}, regex=True).astype(str)\n# Convert 'Worldwide gross' to numeric in billions\n# First, extract numeric value\nimport re\n\ndef extract_gross(gross_str):\n    match = re.search(r'([\\d.]+)', gross_str)\n    if match:\n        return float(match.group(1))\n    return 0.0\n\n# Apply extraction\n\ndf['Gross Number'] = df['Worldwide gross'].apply(extract_gross)\n\ndf['Year'] = pd.to_numeric(df['Year'], errors='coerce')\n\n# Filter movies released before 2000 with gross >= 2 billion\nfiltered_df = df[(df['Year'] < 2000) & (df['Gross Number'] >= 2000)]\n\n# Count how many such movies\ncount_billion_movies_before_2000 = filtered_df.shape[0]\n\nprint(f\"Number of movies grossing >= 2bn before 2000: {count_billion_movies_before_2000}\")\n\n[count_billion_movies_before_2000]
+import asyncio
+import json
+import httpx
+
+from llm_parser import answer_with_data
+
+
+async def main():
+    question = "1. How many $2 bn movies were released before 2000?"
+    answer = await answer_with_data(question)
+    print("LLM Answer:", answer)
+
+asyncio.run(main())

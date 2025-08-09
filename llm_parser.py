@@ -8,7 +8,8 @@ timeout = httpx.Timeout(60.0, connect=10.0)  # 60 seconds total timeout, 10s con
 
 AIPIPE_TOKEN = os.getenv("AIPIPE_TOKEN")
 API_URL = "https://aipipe.org/openrouter/v1/chat/completions"
-MODEL_NAME = "openai/gpt-4.1-nano"
+MODEL_NAME = "openai/gpt-4.1"
+#MODEL_NAME = "openai/gpt-4.1-nano"
 
 HEADERS = {
     "Content-Type": "application/json",
@@ -16,11 +17,19 @@ HEADERS = {
 }
 
 SYSTEM_PROMPT = """
-You are a Python data analyst agent. The user will send analytical questions, CSV/image file paths, or URLs. 
-Your job is to write clean and functional Python code to perform data analysis and return results.
-- If URLs are given (e.g. Wikipedia), scrape them using `pandas.read_html` or `requests + BeautifulSoup`.
-- For CSVs, use `pandas.read_csv`.
-- If plots are asked, save the matplotlib figure and return a base64 string.
+You are a data extraction and analysis assistant.  
+Your job is to:
+1. Write Python code that scrapes the relevant data needed to answer the user's query.
+2. List all Python libraries that need to be installed for the code to run.
+3. Identify and output the main questions that the user is asking, so they can be answered after the data is scraped.
+
+You must respond **only** in valid JSON following the given schema:
+{
+  "code": "string — Python scraping code as plain text",
+  "libraries": ["string — names of required libraries"],
+  "questions": ["string — extracted questions"]
+}
+Do not include explanations, comments, or extra text outside the JSON.
 
 """
 
@@ -38,16 +47,32 @@ Uploaded files:
 URLs:
 {urls}
 
-Now write the Python code needed to answer this question.
-Only return the code, do NOT explain anything.
+You are a data extraction specialist.
+Your task is to generate Python 3 code that loads, scrapes, or reads the data needed to answer the user's question.
+
+1. Always store the final dataset in a file as data.txt/data.csv file.
+
+2. Do not perform any analysis or answer the question. Only write code to collect and clean the data.
+
+3. The code must be self-contained and runnable without manual edits.
+
+4. Use only Python standard libraries plus pandas, numpy, beautifulsoup4, and requests unless otherwise necessary.
+
+5. If the data source is a webpage, download and parse it. If it’s a CSV/Excel, read it directly.
+
+6. Do not explain the code.
+
+7. Output only valid Python code.
+
+8. Just scrap the data don;t do anything fancy.
+
 
 Return a JSON with:
 1. The 'code' field — Python code that answers the question.
 2. The 'libraries' field — list of required pip install packages.
 3. Don't add libraries that came installed with python like io.
 4. Your output will be executed inside a Python REPL.
-5. Add print statement for everything that is important.
-6. Don't add commments
+5. Don't add commments
 
 Only return JSON like:
 {{
@@ -66,7 +91,7 @@ Only return JSON like:
         "response_format": {
             "type": "json_schema",
             "json_schema": {
-                "name": "code_and_libraries",
+                "name": "code_libraries_questions",
                 "strict": True,
                 "schema": {
                     "type": "object",
@@ -75,13 +100,18 @@ Only return JSON like:
                         "libraries": {
                             "type": "array",
                             "items": {"type": "string"}
+                        },
+                        "questions": {
+                            "type": "array",
+                            "items": {"type": "string"}
                         }
                     },
-                    "required": ["code", "libraries"],
+                    "required": ["code", "libraries", "questions"],
                     "additionalProperties": False
                 }
             }
-        }
+}
+
     }
 
     async with httpx.AsyncClient(timeout=timeout) as client:
@@ -90,3 +120,35 @@ Only return JSON like:
         content = response.json()
         llm_response = content["choices"][0]["message"]["content"]
         return json.loads(llm_response)
+
+import pandas as pd
+
+df = pd.read_csv("data.csv")
+data = df.head(50)
+
+async def answer_with_data(question_text):
+    user_prompt = f"""
+Question:
+{question_text}
+
+Data:
+{data}
+
+1. Answer the questions based on the data provided.
+2. Keeps you answers to the point.
+"""
+
+    payload = {
+        "model": MODEL_NAME,
+        "messages": [
+            {"role": "system", "content": "you are a data analyst."},
+            {"role": "user", "content": user_prompt}
+        ]
+    }
+
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        response = await client.post(API_URL, headers=HEADERS, json=payload)
+        response.raise_for_status()
+        content = response.json()
+        llm_response = content["choices"][0]["message"]["content"]
+        return llm_response 
