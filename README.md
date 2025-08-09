@@ -27,6 +27,9 @@ Make sure you have:
    Register and get your token here:  
    [https://ngrok.com/](https://ngrok.com/)
 
+   ## ONLY COPY SELECTED PART
+   ![ngrog screenshot](ngrok_ss.png)
+
 ---
 
 ## 🛠️ Installation: Just execute this file and enter your credentials
@@ -45,5 +48,18 @@ chmod +x start_server.sh
 ---
 
 # Lastly copy paste the public url
+Also don't forgot to add "/api" after the url.
+
+- ### public link
+
+eg: https://dd0b98d2abc3.ngrok-free.app
+![public link](final_public_link.png)
+
+- ### ADd "/api"
+
+## Final link: public link + "/api"
+
+eg:  https://dd0b98d2abc3.ngrok-free.app/api
+
 
 
