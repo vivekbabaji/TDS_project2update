@@ -13,12 +13,12 @@ async def run_python_code(code: str, libraries: List[str]) -> str:
         try:
             subprocess.check_call([sys.executable, "-m", "pip", "install", lib])
         except Exception as install_error:
-            return f"❌ Failed to install library '{lib}':\n{install_error}"
+            return {"code": 0, "output":f"❌ Failed to install library '{lib}':\n{install_error}"}
 
     # Step 2: Execute the code after installation
     try:
         execute_code()
-        return "✅ Code executed successfully after installing libraries."
+        return {"code": 1, "output": "✅ Code executed successfully after installing libraries."}
 
     except Exception as e:
-        return f"❌ Error during code execution:\n{traceback.format_exc()}"
+        return {"code": 0, "output": f"❌ Error during code execution:\n{traceback.format_exc()}" }
