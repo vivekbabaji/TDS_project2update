@@ -1,19 +1,58 @@
-# TDS_project2
-AI based Data Analyst
+# Read this file everything will happen on its own.
+
+## 🚀 Features
+- Automatically installs dependencies from `requirements.txt`
+- Installs ngrok if not already installed
+- Starts `uvicorn` server
+- Exposes your local server publicly via ngrok
+- Clean shutdown with **Ctrl+C**
+- Remembers existing environment variables unless you choose to change them
+---
+
+## 📦 Prerequisites
+Make sure you have:
+- **Python 3.8+** installed
+- **pip** installed
+- Your FastAPI app code ready (`main.py` or `app.py`)
+
+---
 
 
-### Approch1: 
+## 🔑 Getting Credentials
+1. **Google API Key**  
+   Get your key here:  
+   [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
 
-1. give question.txt, and any other file(csv, img etc) to llm and ask for code and libraries to execute.
+2. **ngrok Auth Token**  
+   Register and get your token here:  
+   [https://ngrok.com/](https://ngrok.com/)
 
-2. execute that code in python repl.
+---
 
-Problem: the llm writes code assuming the names on itself which gave raise to too many errors.
+## 🛠️ Installation: Just execute this file and enter your credentials
 
-### Approch-2:
+### 1. Make the script executable
+```bash
+chmod +x start_server.sh
+```
 
-1. Step first is same. but instead of just whole code we are asking to write code to scrap or read all the data that is avaialable(or given).
+### 2. Then run the script 
+```bash
+./start_server.sh
+```
 
-2. now gave that question statement and the ouput data to llm again and ask for possible solution which includes:
-    - if the problem is small, or chatgpt can answer that  `go ahead and do that` if not,
-    - now provide the code for that and we will execute it and answer the question accordingly.
+
+---
+
+# Lastly copy paste the public url
+
+
+## ☕ ---------------------------------------------
+If this script saved you time or headaches, consider buying me a coffee!  
+Your support keeps me motivated to share more useful tools.  
+
+`Vse toh sabh ek doosre ki help hi karte rehte hai. kabhi mera project/assignment poora nhi hota toh m copy kar leta doosro ka.`
+
+![Scanner](scanner.jpeg)
+
+

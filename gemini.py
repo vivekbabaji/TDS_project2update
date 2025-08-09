@@ -2,7 +2,13 @@ import os
 import json
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyC3dswe0cmF3HSO8Ay8xkOnyoHwk1OToW4")
+# Get the API key from environment variable
+api_key = os.getenv("GENAI_API_KEY")
+
+if not api_key:
+    raise ValueError("GENAI_API_KEY environment variable is not set.")
+
+genai.configure(api_key=api_key)
 
 MODEL_NAME = "gemini-2.5-flash"
 
