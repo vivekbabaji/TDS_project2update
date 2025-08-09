@@ -1,51 +1,64 @@
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from typing import List, Optional
-import json
+from fastapi.middleware.cors import CORSMiddleware
 import os
 import uuid
+import aiofiles
+import json
 
-#from llm_parser import parse_question_with_llm, answer_with_data
 from task_engine import run_python_code
-
 from gemini import parse_question_with_llm, answer_with_data
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-@app.post("/analyze")
-async def analyze(
-    question: UploadFile = File(..., description="questions.txt file with tasks"),
-    files: Optional[List[UploadFile]] = File(None, description="Optional data files (csv, image, etc.)"),
-    urls: Optional[str] = Form(None, description="Optional comma-separated URLs")
-):
+@app.post("/api")
+async def analyze(request: Request):
     # Create a unique folder for this request
     request_id = str(uuid.uuid4())
     request_folder = os.path.join(UPLOAD_DIR, request_id)
     os.makedirs(request_folder, exist_ok=True)
 
-    # ✅ 1. Read the question from uploaded file
-    question_text = (await question.read()).decode("utf-8")
+    form = await request.form()
+    question_text = None
+    saved_files = {}
 
-    # ✅ 2. Save any uploaded files
-    saved_files = []
-    if files:
-        for file in files:
-            file_path = os.path.join(request_folder, file.filename)
-            with open(file_path, "wb") as f:
-                f.write(await file.read())
-            saved_files.append(file_path)
+    # Save all uploaded files to the request folder
+    for field_name, value in form.items():
+        if hasattr(value, "filename") and value.filename:  # It's a file
+            file_path = os.path.join(request_folder, value.filename)
+            async with aiofiles.open(file_path, "wb") as f:
+                await f.write(await value.read())
+            saved_files[field_name] = file_path
 
-    # ✅ 3. Parse URL list
-    url_list = [url.strip() for url in urls.split(",")] if urls else []
+            # If it's questions.txt, read its content
+            if field_name == "questions.txt":
+                async with aiofiles.open(file_path, "r") as f:
+                    question_text = await f.read()
+        else:
+            saved_files[field_name] = value
+
+    # Fallback: If no questions.txt, use the first file as question
+    if question_text is None and saved_files:
+        first_file = next(iter(saved_files.values()))
+        async with aiofiles.open(first_file, "r") as f:
+            question_text = await f.read()
+
 
     # ✅ 4. Get code steps from LLM
     response = await parse_question_with_llm(
         question_text=question_text,
         uploaded_files=saved_files,
-        urls=url_list,
         folder=request_folder
     )
 
@@ -63,7 +76,6 @@ async def analyze(
         response = await parse_question_with_llm(
             question_text=new_question_text,
             uploaded_files=saved_files,
-            urls=url_list,
             folder=request_folder
         )
 
@@ -91,14 +103,26 @@ async def analyze(
     print(final_result)
 
     count = 0
+    json_str = 1
     while final_result["code"] == 0 and count < 3:
         print(f"Error occured while executing code x{count}")
         new_question_text = str(response["questions"]) + "previous time this error occured" + str(final_result["output"])
+        if json_str == 0:
+            new_question_text += "follow the structure {'code': '', 'libraries': ''}"
+            
         gpt_ans = await answer_with_data(new_question_text, folder=request_folder)
 
         print(gpt_ans)
 
-        final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+        try:
+            json_str = 0
+            final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+            json_str = 1
+        except Exception as e:
+            print(f"Exception occurred: {e}")
+            count -= 1
+
+        
 
         print(final_result)
 

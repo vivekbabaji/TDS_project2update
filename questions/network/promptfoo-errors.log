@@ -1,0 +1,1386 @@
+2025-08-09T11:22:27.043Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738546759-a6184086981de.py", line 4, in main
+2025-08-09T11:22:27.044Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738546763-01bfbd8033a9c8.py", line 4, in main
+    val = float(output["average_degree"])
+                ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'average_degree'
+2025-08-09T11:22:27.044Z [ERROR]: if output["edge_count"] == 7 :
+       ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'edge_count'
+2025-08-09T11:22:27.045Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T11:22:27.045Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738546763-f37700cee96e9.py", line 4, in main
+    if output["highest_degree_node"].lower() == "bob" :
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'highest_degree_node'
+2025-08-09T11:22:27.064Z [ERROR]: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738546759-a6184086981de.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:22:27.065Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738546759-efa7426437a7f.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738546759-efa7426437a7f.json'
+2025-08-09T11:22:27.065Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738546759-a6184086981de.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:22:27.069Z [ERROR]: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738546763-01bfbd8033a9c8.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:22:27.069Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738546763-369974707735b.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738546763-369974707735b.json'
+2025-08-09T11:22:27.069Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738546763-01bfbd8033a9c8.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:22:27.073Z [ERROR]: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738546763-f37700cee96e9.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:22:27.073Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738546763-3355fe65a2131.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738546763-3355fe65a2131.json'
+2025-08-09T11:22:27.073Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738546763-f37700cee96e9.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:22:27.188Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T11:22:27.188Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738547065-81a2f7704d9768.py", line 4, in main
+    val = float(output["density"])
+                ~~~~~~^^^^^^^^^^^
+KeyError: 'density'
+2025-08-09T11:22:27.192Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T11:22:27.193Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738547070-83b467ceb94c38.py", line 4, in main
+    if output["shortest_path_alice_eve"] == 2:
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'shortest_path_alice_eve'
+2025-08-09T11:22:27.208Z [ERROR]: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738547065-81a2f7704d9768.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:22:27.208Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738547065-fb7bcbca9417a8.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738547065-fb7bcbca9417a8.json'
+2025-08-09T11:22:27.208Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738547065-81a2f7704d9768.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:22:27.211Z [ERROR]: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738547070-83b467ceb94c38.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:22:27.211Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738547070-1464ae6db772c8.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738547070-1464ae6db772c8.json'
+2025-08-09T11:22:27.211Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738547070-83b467ceb94c38.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:25:16.555Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+2025-08-09T11:25:16.556Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738716291-4a11274fd68b8.py", line 4, in main
+    if output["highest_degree_node"].lower() == "bob" :
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'highest_degree_node'
+2025-08-09T11:25:16.556Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738716292-bafb269c6ece2.py", line 4, in main
+    val = float(output["average_degree"])
+                ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'average_degree'
+2025-08-09T11:25:16.557Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738716287-b72e41bf69de3.py", line 4, in main
+    if output["edge_count"] == 7 :
+       ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'edge_count'
+2025-08-09T11:25:16.579Z [ERROR]: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716287-b72e41bf69de3.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:25:16.580Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738716288-760ff8b5a8873.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738716288-760ff8b5a8873.json'
+2025-08-09T11:25:16.580Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716287-b72e41bf69de3.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:25:16.583Z [ERROR]: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716291-4a11274fd68b8.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:25:16.583Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738716291-9122a17dba16c8.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738716291-9122a17dba16c8.json'
+2025-08-09T11:25:16.583Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716291-4a11274fd68b8.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:25:16.586Z [ERROR]: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716292-bafb269c6ece2.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:25:16.586Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738716292-dfcd92f24eeae.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738716292-dfcd92f24eeae.json'
+2025-08-09T11:25:16.586Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716292-bafb269c6ece2.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:25:16.691Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T11:25:16.692Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738716580-52a9f722eb2cc8.py", line 4, in main
+    val = float(output["density"])
+                ~~~~~~^^^^^^^^^^^
+KeyError: 'density'
+2025-08-09T11:25:16.692Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738716583-8ac558fb1c7e5.py", line 4, in main
+    if output["shortest_path_alice_eve"] == 2:
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'shortest_path_alice_eve'
+2025-08-09T11:25:16.709Z [ERROR]: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716580-52a9f722eb2cc8.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:25:16.710Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738716580-fa567f4bc5896.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738716580-fa567f4bc5896.json'
+2025-08-09T11:25:16.710Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716580-52a9f722eb2cc8.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:25:16.711Z [ERROR]: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716583-8ac558fb1c7e5.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:25:16.711Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738716583-cd5c75c888006.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738716583-cd5c75c888006.json'
+2025-08-09T11:25:16.712Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738716583-8ac558fb1c7e5.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:28:50.205Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+2025-08-09T11:28:50.206Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738929907-931df0c355a86.py", line 4, in main
+    if output["edge_count"] == 7 :
+       ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'edge_count'
+2025-08-09T11:28:50.212Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T11:28:50.213Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738929911-0653e7303364f8.py", line 4, in main
+    if output["highest_degree_node"].lower() == "bob" :
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'highest_degree_node'
+2025-08-09T11:28:50.216Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738929912-c649bb8bb42288.py", line 4, in main
+    val = float(output["average_degree"])
+2025-08-09T11:28:50.216Z [ERROR]: ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'average_degree'
+2025-08-09T11:28:50.224Z [ERROR]: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738929907-931df0c355a86.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:28:50.224Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738929907-13c9621aafcb8.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738929907-13c9621aafcb8.json'
+2025-08-09T11:28:50.224Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738929907-931df0c355a86.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:28:50.238Z [ERROR]: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738929911-0653e7303364f8.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:28:50.238Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738929911-8097f60b801d38.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738929911-8097f60b801d38.json'
+2025-08-09T11:28:50.238Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738929911-0653e7303364f8.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:28:50.243Z [ERROR]: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738929912-c649bb8bb42288.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:28:50.243Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738929912-2c3ef68bb0901.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738929912-2c3ef68bb0901.json'
+2025-08-09T11:28:50.243Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738929912-c649bb8bb42288.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:28:50.365Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738930225-76aea9ea7e5ee.py", line 4, in main
+    val = float(output["density"])
+                ~~~~~~^^^^^^^^^^^
+KeyError: 'density'
+2025-08-09T11:28:50.376Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T11:28:50.376Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754738930238-c60eba607f7e3.py", line 4, in main
+    if output["shortest_path_alice_eve"] == 2:
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'shortest_path_alice_eve'
+2025-08-09T11:28:50.385Z [ERROR]: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738930225-76aea9ea7e5ee.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:28:50.385Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738930225-1efe33013f3108.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738930225-1efe33013f3108.json'
+2025-08-09T11:28:50.386Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738930225-76aea9ea7e5ee.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:28:50.397Z [ERROR]: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738930238-c60eba607f7e3.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:28:50.398Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754738930238-218c9ba9dc894.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754738930238-218c9ba9dc894.json'
+2025-08-09T11:28:50.398Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754738930238-c60eba607f7e3.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:33:52.300Z [ERROR]: API call error: Error: Request failed after 4 retries: undefined
+2025-08-09T11:33:52.529Z [ERROR]: API call error: Error: Request failed after 4 retries: undefined
+2025-08-09T11:40:21.123Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T11:40:21.124Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754739620525-66291b15a18b3.py", line 4, in main
+    if output["edge_count"] == 7 :
+       ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'edge_count'
+2025-08-09T11:40:21.125Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754739620534-6737044a68daa8.py", line 4, in main
+    if output["highest_degree_node"].lower() == "bob" :
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'highest_degree_node'
+2025-08-09T11:40:21.127Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754739620536-37164ace945088.py", line 4, in main
+    val = float(output["average_degree"])
+                ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'average_degree'
+2025-08-09T11:40:21.155Z [ERROR]: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739620525-66291b15a18b3.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:40:21.156Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754739620526-88bdc848540aa.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754739620526-88bdc848540aa.json'
+2025-08-09T11:40:21.156Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739620525-66291b15a18b3.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:40:21.165Z [ERROR]: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739620534-6737044a68daa8.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:40:21.166Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754739620534-c3340e6ed669a8.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754739620534-c3340e6ed669a8.json'
+2025-08-09T11:40:21.166Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739620534-6737044a68daa8.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:40:21.173Z [ERROR]: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739620536-37164ace945088.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:40:21.173Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754739620536-9ff00eebb8eaa8.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754739620536-9ff00eebb8eaa8.json'
+2025-08-09T11:40:21.174Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739620536-37164ace945088.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:40:21.442Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T11:40:21.442Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754739621157-e58e9b4e89e168.py", line 4, in main
+    val = float(output["density"])
+                ~~~~~~^^^^^^^^^^^
+KeyError: 'density'
+2025-08-09T11:40:21.455Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T11:40:21.455Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754739621167-20fec840fb324.py", line 4, in main
+    if output["shortest_path_alice_eve"] == 2:
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'shortest_path_alice_eve'
+2025-08-09T11:40:21.479Z [ERROR]: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739621157-e58e9b4e89e168.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:40:21.479Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754739621158-0e9a07ca1b7f48.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754739621158-0e9a07ca1b7f48.json'
+2025-08-09T11:40:21.479Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739621157-e58e9b4e89e168.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:40:21.496Z [ERROR]: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739621167-20fec840fb324.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:40:21.497Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754739621167-f80ba0fd4041a.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754739621167-f80ba0fd4041a.json'
+2025-08-09T11:40:21.497Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754739621167-20fec840fb324.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:45:23.282Z [ERROR]: API call error: Error: Request failed after 4 retries: undefined
+2025-08-09T11:45:23.539Z [ERROR]: API call error: Error: Request failed after 4 retries: undefined
+2025-08-09T11:52:22.710Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+2025-08-09T11:52:22.714Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754740342043-80f7eafca6a6b8.py", line 4, in main
+    if output["highest_degree_node"].lower() == "bob" :
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'highest_degree_node'
+2025-08-09T11:52:22.715Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754740342032-4fc015c84dbec8.py", line 4, in main
+    if output["edge_count"] == 7 :
+       ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'edge_count'
+2025-08-09T11:52:22.719Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754740342045-060ee89823fd58.py", line 4, in main
+    val = float(output["average_degree"])
+                ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'average_degree'
+2025-08-09T11:52:22.750Z [ERROR]: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342043-80f7eafca6a6b8.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:52:22.751Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754740342043-465cc795d13f18.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754740342043-465cc795d13f18.json'
+2025-08-09T11:52:22.751Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342043-80f7eafca6a6b8.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:52:22.760Z [ERROR]: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342032-4fc015c84dbec8.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:52:22.761Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754740342033-d24d0362c9c52.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754740342033-d24d0362c9c52.json'
+2025-08-09T11:52:22.761Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342032-4fc015c84dbec8.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T11:52:22.768Z [ERROR]: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342045-060ee89823fd58.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:52:22.768Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754740342045-51968867f9573.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754740342045-51968867f9573.json'
+2025-08-09T11:52:22.768Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342045-060ee89823fd58.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T11:52:23.037Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+2025-08-09T11:52:23.037Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754740342752-f112d789c17e9.py", line 4, in main
+    val = float(output["density"])
+                ~~~~~~^^^^^^^^^^^
+KeyError: 'density'
+2025-08-09T11:52:23.044Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+2025-08-09T11:52:23.044Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754740342762-ae7d20805b8838.py", line 4, in main
+    if output["shortest_path_alice_eve"] == 2:
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'shortest_path_alice_eve'
+2025-08-09T11:52:23.075Z [ERROR]: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342752-f112d789c17e9.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:52:23.076Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754740342753-9942763e840e08.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754740342753-9942763e840e08.json'
+2025-08-09T11:52:23.076Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342752-f112d789c17e9.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T11:52:23.085Z [ERROR]: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342762-ae7d20805b8838.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:52:23.085Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754740342762-71c5ed68340f48.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754740342762-71c5ed68340f48.json'
+2025-08-09T11:52:23.086Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754740342762-ae7d20805b8838.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T11:57:24.555Z [ERROR]: API call error: Error: Request failed after 4 retries: undefined
+2025-08-09T11:57:24.891Z [ERROR]: API call error: Error: Request failed after 4 retries: undefined
+2025-08-09T12:10:47.590Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T12:10:47.591Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754741447351-1b50e89d6618c.py", line 4, in main
+    if output["highest_degree_node"].lower() == "bob" :
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'highest_degree_node'
+2025-08-09T12:10:47.591Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754741447347-ce77db3e33b53.py", line 4, in main
+    if output["edge_count"] == 7 :
+       ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'edge_count'
+2025-08-09T12:10:47.593Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T12:10:47.593Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754741447352-dd8aee3a18631.py", line 4, in main
+    val = float(output["average_degree"])
+                ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'average_degree'
+2025-08-09T12:10:47.604Z [ERROR]: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447351-1b50e89d6618c.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T12:10:47.605Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754741447351-ca35c9b7acbf58.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754741447351-ca35c9b7acbf58.json'
+2025-08-09T12:10:47.605Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'highest_degree_node'
+Stack Trace: Error: KeyError: 'highest_degree_node'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447351-1b50e89d6618c.py", line 4, in main
+      if output["highest_degree_node"].lower() == "bob" :
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T12:10:47.610Z [ERROR]: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447347-ce77db3e33b53.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T12:10:47.610Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754741447348-2b36bd37289ae8.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754741447348-2b36bd37289ae8.json'
+2025-08-09T12:10:47.610Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'edge_count'
+Stack Trace: Error: KeyError: 'edge_count'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447347-ce77db3e33b53.py", line 4, in main
+      if output["edge_count"] == 7 :
+         ~~~~~~^^^^^^^^^^^^^^
+2025-08-09T12:10:47.613Z [ERROR]: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447352-dd8aee3a18631.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T12:10:47.613Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754741447352-37c3172c005e78.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754741447352-37c3172c005e78.json'
+2025-08-09T12:10:47.614Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'average_degree'
+Stack Trace: Error: KeyError: 'average_degree'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447352-dd8aee3a18631.py", line 4, in main
+      val = float(output["average_degree"])
+                  ~~~~~~^^^^^^^^^^^^^^^^^^
+2025-08-09T12:10:47.715Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T12:10:47.715Z [ERROR]: File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754741447605-8ef89f8ae4577.py", line 4, in main
+    val = float(output["density"])
+                ~~~~~~^^^^^^^^^^^
+KeyError: 'density'
+2025-08-09T12:10:47.718Z [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+2025-08-09T12:10:47.718Z [ERROR]: result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/temp-python-code-1754741447610-e9ed7b3363cb7.py", line 4, in main
+    if output["shortest_path_alice_eve"] == 2:
+       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'shortest_path_alice_eve'
+2025-08-09T12:10:47.730Z [ERROR]: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447605-8ef89f8ae4577.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T12:10:47.731Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754741447606-68f923fd48e438.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754741447606-68f923fd48e438.json'
+2025-08-09T12:10:47.731Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'density'
+Stack Trace: Error: KeyError: 'density'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447605-8ef89f8ae4577.py", line 4, in main
+      val = float(output["density"])
+                  ~~~~~~^^^^^^^^^^^
+2025-08-09T12:10:47.734Z [ERROR]: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447610-e9ed7b3363cb7.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-08-09T12:10:47.734Z [ERROR]: Error removing /tmp/promptfoo-python-output-json-1754741447610-b3bfca9cd960d.json: Error: ENOENT: no such file or directory, unlink '/tmp/promptfoo-python-output-json-1754741447610-b3bfca9cd960d.json'
+2025-08-09T12:10:47.734Z [ERROR]: Error executing Python code: Error: Error running Python script: KeyError: 'shortest_path_alice_eve'
+Stack Trace: Error: KeyError: 'shortest_path_alice_eve'
+    at PythonShell.parseError (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:303:21)
+    at terminateIfNeeded (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:193:32)
+    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/promptfoo/node_modules/python-shell/index.js:185:13)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
+    --Python Traceback: --
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/usr/local/lib/node_modules/promptfoo/dist/src/python/wrapper.py", line 28, in call_method
+      return method_to_call(*args)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "/tmp/temp-python-code-1754741447610-e9ed7b3363cb7.py", line 4, in main
+      if output["shortest_path_alice_eve"] == 2:
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^

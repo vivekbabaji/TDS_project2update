@@ -1,13 +1,10 @@
-import asyncio
-import json
-import httpx
+import requests
 
-from llm_parser import answer_with_data
+url = "http://127.0.0.1:8000/api"
+files = {
+    "questions.txt": open("questions/network/questions.txt", "rb"),
+    "edges.csv": open("questions/network/edges.csv", "rb"),
+}
 
-
-async def main():
-    question = "1. How many $2 bn movies were released before 2000?"
-    answer = await answer_with_data(question)
-    print("LLM Answer:", answer)
-
-asyncio.run(main())
+response = requests.post(url, files=files)
+print(response.json())
