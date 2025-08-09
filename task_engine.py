@@ -3,8 +3,21 @@ import sys
 import traceback
 from typing import List
 
-async def run_python_code(code: str, libraries: List[str]) -> str:
+async def run_python_code(code: str, libraries: List[str], folder: str = "uploads") -> dict:
+    import os
+    import io
+
     def execute_code():
+        # Ensure working directory is the request folder
+        #os.makedirs(folder, exist_ok=True)
+        #old_cwd = os.getcwd()
+        #os.chdir(folder)
+        #try:
+        #    exec_globals = {}
+        #    exec(code, exec_globals)
+        #finally:
+        #    os.chdir(old_cwd)
+
         exec_globals = {}
         exec(code, exec_globals)
 
