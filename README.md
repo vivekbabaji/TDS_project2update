@@ -6,14 +6,12 @@
 - Starts `uvicorn` server
 - Exposes your local server publicly via ngrok
 - Clean shutdown with **Ctrl+C**
-- Remembers existing environment variables unless you choose to change them
 ---
 
 ## 📦 Prerequisites
 Make sure you have:
 - **Python 3.8+** installed
 - **pip** installed
-- Your FastAPI app code ready (`main.py` or `app.py`)
 
 ---
 
