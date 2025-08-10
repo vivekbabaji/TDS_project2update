@@ -1,5 +1,7 @@
 # Read this file everything will happen on its own.
 
+`Note: try to use linux distro or install WSL(subsystem for linux) on windows for soomth running.`
+
 ## 🚀 Features
 - Automatically installs dependencies from `requirements.txt`
 - Installs ngrok if not already installed
@@ -53,7 +55,7 @@ Also don't forgot to add "/api" after the url.
 eg: https://dd0b98d2abc3.ngrok-free.app
 ![public link](final_public_link.png)
 
-- ### ADd "/api"
+- ### Add "/api"
 
 ## Final link: public link + "/api"
 
