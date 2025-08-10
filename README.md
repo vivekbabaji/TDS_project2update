@@ -34,12 +34,12 @@ Make sure you have:
 
 ### 1. Make the script executable
 ```bash
-chmod +x start_server.sh
+chmod +x start.sh
 ```
 
 ### 2. Then run the script 
 ```bash
-./start_server.sh
+./start.sh
 ```
 
 
