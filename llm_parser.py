@@ -33,9 +33,8 @@ Do not include explanations, comments, or extra text outside the JSON.
 
 """
 
-async def parse_question_with_llm(question_text, uploaded_files=None, urls=None):
+async def parse_question_with_llm(question_text, uploaded_files=None, folder="uploads"):
     uploaded_files = uploaded_files or []
-    urls = urls or []
 
     user_prompt = f"""
 Question:
@@ -44,15 +43,12 @@ Question:
 Uploaded files:
 {uploaded_files}
 
-URLs:
-{urls}
 
 You are a data extraction specialist.
 Your task is to generate Python 3 code that loads, scrapes, or reads the data needed to answer the user's question.
 
-1(a). Create code to collect metadata about the data that you collected from scraping (eg. storing details of df using df.info, df.columns, df.head() etc.) in a "uploads/metadata.txt" file that will help other model to generate code.
-- add code for creating any folder that don't exist.
-1(b). Always store the final dataset in a file as /uploads/data.csv file.And if you find to store other files then also store them in this folder. And lastly add the path and a breif description about the file in "metadata.txt" file.
+1(a). Always store the final dataset in a file as {folder}/data.csv file. And if you need to store other files then also store them in this folder. Lastly, add the path and a brief description about the file in "{folder}/metadata.txt".
+1(b). Create code to collect metadata about the data that you collected from scraping (eg. storing details of df using df.info, df.columns, df.head() etc.) in a "{folder}/metadata.txt" file that will help other model to generate code. Add code for creating any folder that doesn't exist like "{folder}".
 
 
 2. Do not perform any analysis or answer the question. Only write code to collect the data.
@@ -84,6 +80,8 @@ Only return JSON like:
   "libraries": ["pandas", "matplotlib"]
 }}
 
+lastly i am saying again don't try to solve these questions.
+in metadata also add JSON answer format if present.
 """
 
     payload = {
@@ -118,12 +116,21 @@ Only return JSON like:
 
     }
 
+    # Path to the file
+    file_path = os.path.join(folder, "metadata.txt")
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    if not os.path.exists(file_path):
+        with open(file_path, "w") as f:
+            f.write("")
+
     async with httpx.AsyncClient(timeout=timeout) as client:
         response = await client.post(API_URL, headers=HEADERS, json=payload)
         response.raise_for_status()
         content = response.json()
         llm_response = content["choices"][0]["message"]["content"]
         return json.loads(llm_response)
+    
+    
 
 
 
@@ -133,21 +140,15 @@ You are a data analysis assistant.
 Your job is to:
 1. Write Python code to solve these questions with provided metadata.
 2. List all Python libraries that need to be installed for the code to run.
-3. Also add code to save the result to "uploads/result.txt" or any filetype you find suitable.
+3. Also add code to save the result to "{folder}/result.json" or any filetype you find suitable (eg. save img files like "{folder}/img.png").
 
-You must respond **only** in valid JSON following the given schema:
-{
-  "code": "string — Python scraping code as plain text",
-  "libraries": ["string — names of required libraries"],
-}
 Do not include explanations, comments, or extra text outside the JSON.
-
 """
 
 
-async def answer_with_data(question_text):
-    # Open and read the whole file
-    with open("uploads/metadata.txt", "r") as file:
+async def answer_with_data(question_text, folder="uploads"):
+    metadata_path = os.path.join(folder, "metadata.txt")
+    with open(metadata_path, "r") as file:
         metadata = file.read()
 
     user_prompt = f"""
@@ -157,15 +158,28 @@ Question:
 metadata:
 {metadata}
 
-
 Return a JSON with:
 1. The 'code' field — Python code that answers the question.
 2. The 'libraries' field — list of required pip install packages.
 3. Don't add libraries that came installed with python like "io".
 4. Your output will be executed inside a Python REPL.
-5. Don't add commments
+5. Don't add comments
+6. Convert any image/visualisation if present, into base64 PNG and add it to the result.
 
+You must respond **only** in valid JSON with these properties:
+
+  "code": "string — Python scraping code as plain text",
+  "libraries": ["string — names of required libraries"]
+
+lastly follow answer format and save answer of questions in result as JSON file.
 """
+
+    # Path to the file
+    file_path = os.path.join(folder, "result.json")
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    if not os.path.exists(file_path):
+        with open(file_path, "w") as f:
+            f.write("")
 
     payload = {
         "model": MODEL_NAME,
