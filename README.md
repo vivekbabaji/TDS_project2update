@@ -28,7 +28,7 @@ Make sure you have:
    [https://ngrok.com/](https://ngrok.com/)
 
    ## ONLY COPY SELECTED PART
-   ![ngrog screenshot](ngrok_ss.png)
+   ![ngrog screenshot](photos/ngrok_ss.png)
 
 ---
 
@@ -54,7 +54,7 @@ Also don't forgot to add "/api" after the url.
 - ### public link
 
 eg: https://dd0b98d2abc3.ngrok-free.app
-![public link](final_public_link.png)
+![public link](photos/final_public_link.png)
 
 - ### Add "/api"
 
@@ -92,6 +92,8 @@ A simple HTML frontend is provided for uploading multiple files and viewing API 
 4. Click "Submit" to upload the files(you can select multiple files) to the backend.
 5. The response from the API will be displayed below the form.
 
+![Frontend photo](photos/Frontend.png)
+
 **Note:**  
 - The frontend sends files to the `/api` endpoint of your public URL.
 - You can preview selected file names before uploading.
@@ -104,3 +106,21 @@ A simple HTML frontend is provided for uploading multiple files and viewing API 
 - Make sure the public URL matches your ngrok tunnel and ends with `/api` for direct API
 
 
+# Common Issues
+
+1. ### Uvicorn Server Shutdown Issues
+
+**Note:**  
+Sometimes, pressing **Ctrl+C** does not fully stop the Uvicorn server. This can lead to "Internal Server Error" or port conflicts when you try to restart the server.
+
+**What to do:**  
+- If you still see errors after stopping the script, manually kill any running Uvicorn processes:
+  ```bash
+  pkill -f uvicorn
+  ```
+- Alternatively, you can restart your terminal or system to ensure all processes are stopped.
+
+**Tip:**  
+Always make sure no old Uvicorn processes are running before starting the
+
+![Uvicorn server stopping](photos/uvicorn_server_stoping.png)
