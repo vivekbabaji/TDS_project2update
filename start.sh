@@ -88,10 +88,14 @@ if [ -z "$NGROK_AUTHTOKEN" ]; then
 fi
 export NGROK_AUTHTOKEN=$NGROK_AUTHTOKEN
 
-# ================= INSTALL REQUIREMENTS =================
-echo "Installing dependencies from requirements.txt..."
-pip install -r requirements.txt
-
+# ================= INSTALL REQUIREMENTS (First time only) =================
+if [ ! -f ".deps_installed" ]; then
+    echo "Installing dependencies from requirements.txt (first time only)..."
+    pip install -r requirements.txt
+    touch .deps_installed
+else
+    echo "Dependencies already installed. Skipping pip install."
+fi
 # ================= INSTALL NGROK =================
 if ! command -v ngrok &> /dev/null; then
     echo "ngrok not found, installing..."
