@@ -95,6 +95,7 @@ in metadata also add JSON answer format if present.
     if not os.path.exists(file_path):
         with open(file_path, "w") as f:
             f.write("")
+    
     return json.loads(response.text)
 
 SYSTEM_PROMPT2 = """

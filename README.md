@@ -32,6 +32,7 @@ Make sure you have:
 
 ---
 
+
 ## 🛠️ Installation: Just execute this file and enter your credentials
 
 ### 1. Make the script executable
@@ -60,6 +61,25 @@ eg: https://dd0b98d2abc3.ngrok-free.app
 ## Final link: public link + "/api"
 
 eg:  https://dd0b98d2abc3.ngrok-free.app/api
+
+## Environment Variables Setup
+
+This project loads environment variables from a file named `env_variables.txt` located in the project root.
+
+**How to use:**
+
+1. Create a file called `env_variables.txt` in the project directory.
+2. Add your variables in the format:
+   ```
+   GENAI_API_KEY=your_google_api_key
+   NGROK_AUTHTOKEN=your_ngrok_authtoken
+   # You can add more variables as needed
+   ```
+3. When you run `start.sh`, these variables will be automatically loaded and exported to your environment.
+
+**Note:**  
+If a variable is already set, the script will ask if you want to change it
+
 
 # Testing
 - ### Use curl to test the api as ther is no UI.

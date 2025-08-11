@@ -19,8 +19,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+async def serve_frontend():
+    with open("frontend.html", "r") as f:
+        html_content = f.read()
+    return HTMLResponse(content=html_content)
+
+
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+# Helper funtion to show last 25 words of string s
+def last_n_words(s, n=25):
+    s = str(s)
+    words = s.split()
+    return ' '.join(words[-n:])
+
 
 @app.post("/api")
 async def analyze(request: Request):
@@ -28,6 +44,7 @@ async def analyze(request: Request):
     request_id = str(uuid.uuid4())
     request_folder = os.path.join(UPLOAD_DIR, request_id)
     os.makedirs(request_folder, exist_ok=True)
+    print("Step-1: Folder created: ", request_folder)
 
     form = await request.form()
     question_text = None
@@ -53,36 +70,49 @@ async def analyze(request: Request):
         first_file = next(iter(saved_files.values()))
         async with aiofiles.open(first_file, "r") as f:
             question_text = await f.read()
+    
+    print("Step-2: File sent", saved_files)
 
 
     # ✅ 4. Get code steps from LLM
 
-    try:
-            
-        response = await parse_question_with_llm(
-            question_text=question_text,
-            uploaded_files=saved_files,
-            folder=request_folder
-        )
-    except Exception as e:
-        response = await parse_question_with_llm(
-            question_text=question_text + str(e),
-            uploaded_files=saved_files,
-            folder=request_folder
-        )
+    max_attempts = 3
+    attempt = 0
+    response = None
+    
+    
+    while attempt < max_attempts:
+        print("Step-3: Getting scrap code and metadata from llm. Tries count = ", attempt)
+        try:
+            response = await parse_question_with_llm(
+                question_text=question_text,
+                uploaded_files=saved_files,
+                folder=request_folder
+            )
+            # Check if response is a valid dict (parsed JSON)
+            if isinstance(response, dict):
+                break
+        except Exception as e:
+            question_text = question_text + str(e)
+            print("Step-3: Error in parsing the result. ", last_n_words(question_text))
+        attempt += 1
+
+
+    if not isinstance(response, dict):
+        return JSONResponse({"message": "Error: Could not get valid response from LLM after retries."})
 
 
 
-    print(response)
+    print("Step-3: Response from scrapping: ", last_n_words(response))
 
     # ✅ 5. Execute generated code safely
     execution_result = await run_python_code(response["code"], response["libraries"], folder=request_folder)
 
-    print(execution_result)
+    print("Step-4: Execution result of the scrape code: ", last_n_words(execution_result["output"]))
 
     count = 0
     while execution_result["code"] == 0 and count < 3:
-        print(f"Error occured while scrapping x{count}")
+        print(f"Step-4: Error occured while scrapping. Tries count = {count}")
         new_question_text = str(question_text) + "previous time this error occured" + str(execution_result["output"])
         response = await parse_question_with_llm(
             question_text=new_question_text,
@@ -90,11 +120,11 @@ async def analyze(request: Request):
             folder=request_folder
         )
 
-        print(response)
+        print("Step-3: Response from scrapping: ", last_n_words(response))
 
         execution_result = await run_python_code(response["code"], response["libraries"], folder=request_folder)
 
-        print(execution_result)
+        print("Step-4: Execution result of the scrape code: ", last_n_words(execution_result["output"]))
 
         count += 1
 
@@ -104,46 +134,59 @@ async def analyze(request: Request):
         return JSONResponse({"message": "error occured while scrapping."})
 
     # 6. get answers from llm
-    try:
-        gpt_ans = await answer_with_data(response["questions"], folder=request_folder)
-        print(gpt_ans)
-    except Exception as e:
-        gpt_ans = await answer_with_data(response["questions"] + str(e), folder=request_folder)
-        print(gpt_ans)
+    max_attempts = 3
+    attempt = 0
+    gpt_ans = None
+    response_questions = response["questions"]
 
+    while attempt < max_attempts:
+        print("Step-5: Getting execution code from llm. Tries count = ", attempt)
+        try:
+            gpt_ans = await answer_with_data(response_questions, folder=request_folder)
+            print("Step-5: Response from llm: ",last_n_words(gpt_ans["code"]))
+            if isinstance(gpt_ans, dict):
+                break
+        except Exception as e:
+            print(f"Step-5: Error: {e}")
+            response_questions += str(e)
+        attempt += 1
+    
+    if not isinstance(gpt_ans, dict):
+        return JSONResponse({"message": "Error: Could not get valid response from answer_with_data after retries."})
+    
     # 7. Executing code
     try:
+        print("Step-6: Executing final code. Tries count = 0")
         final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+        print("Step-6: Executing final code result: ", last_n_words(final_result["output"]))
     except Exception as e:
-        gpt_ans = await answer_with_data(response["questions"]+str("Please follow the json structure"), folder=request_folder)
-
-        print("Trying after it caught under except block-wrong json format",gpt_ans)
+        print("Step-6: Trying after it caught under except block-wrong json format. Tries count = 1", last_n_words(e))
+        print("Step-5: Getting execution code from llm. Tries count = ", attempt+1)
+        gpt_ans = await answer_with_data(str(response["questions"])+str("Please follow the json structure"), folder=request_folder)
+        print("Step-5: Response from llm: ",last_n_words(gpt_ans["code"]))
         final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+        print("Step-6: Executing final code result: ", last_n_words(final_result["output"]))
         
 
     count = 0
     json_str = 1
     while final_result["code"] == 0 and count < 3:
-        print(f"Error occured while executing code x{count}")
+        print(f"Step-6: Error occured while executing code. Tries count = {count+2}")
         new_question_text = str(response["questions"]) + "previous time this error occured" + str(final_result["output"])
         if json_str == 0:
             new_question_text += "follow the structure {'code': '', 'libraries': ''}"
-            
+        print("Step-5: Getting execution code from llm. Tries count = ", attempt+1)
         gpt_ans = await answer_with_data(new_question_text, folder=request_folder)
-
-        print(gpt_ans)
+        print("Step-5: Response from llm: ",last_n_words(gpt_ans["code"]))
 
         try:
             json_str = 0
             final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+            print("Step-6: Executing final code result: ", last_n_words(final_result["output"]))
             json_str = 1
         except Exception as e:
             print(f"Exception occurred: {e}")
             count -= 1
-
-        
-
-        print(final_result)
 
         count += 1
 
@@ -159,6 +202,10 @@ async def analyze(request: Request):
     with open(result_path, "r") as f:
         try:
             data = json.load(f)
+            print("Step-7: send result back")
             return JSONResponse(content=data)
         except Exception as e:
+            print("Step-7: Error occur while sending result: ", last_n_words(e))
             return JSONResponse({"message": f"Error occured while processing reult.json: {e}"})
+        
+    

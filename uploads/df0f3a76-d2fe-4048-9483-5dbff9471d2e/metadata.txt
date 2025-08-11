@@ -1,0 +1,33 @@
+--- DataFrame Info ---
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 7 entries, 0 to 6
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   source  7 non-null      object
+ 1   target  7 non-null      object
+dtypes: object(2)
+memory usage: 244.0+ bytes
+
+--- DataFrame Columns ---
+['source', 'target']
+
+--- DataFrame Head ---
+  source target
+0  Alice    Bob
+1  Alice  Carol
+2    Bob  Carol
+3    Bob  David
+4    Bob    Eve
+
+--- Expected JSON Answer Format ---
+
+{
+  "edge_count": "number",
+  "highest_degree_node": "string",
+  "average_degree": "number",
+  "density": "number",
+  "shortest_path_alice_eve": "number",
+  "network_graph": "base64 PNG string under 100kB",
+  "degree_histogram": "base64 PNG string under 100kB"
+}
