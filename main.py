@@ -151,6 +151,19 @@ async def analyze(request: Request):
         execution_result = await run_python_code(response["code"], response["libraries"], folder=request_folder)
 
         logger.info("Step-4: Execution result of the scrape code: %s", last_n_words(execution_result["output"]))
+        csv_path = os.path.join(request_folder, "data.csv")
+        csv_retry_count = 0
+        max_csv_retries = 3
+
+        while os.path.exists(csv_path) and is_csv_empty(csv_path) and csv_retry_count < max_csv_retries:
+            logger.warning("data.csv is present but empty. Retrying code generation and  execution. Attempt %d", csv_retry_count + 1)
+            response = await parse_question_with_llm(
+                question_text=new_question_text + str("there is nothing present in data.csv file."),
+                uploaded_files=saved_files,
+                folder=request_folder
+            )
+            execution_result = await run_python_code(response["code"], response["libraries"], folder=request_folder)
+            csv_retry_count += 1
 
         count += 1
 
@@ -160,14 +173,7 @@ async def analyze(request: Request):
         logger.error("error occured while scrapping.")
         return JSONResponse({"message": "error occured while scrapping."})
 
-    csv_path = os.path.join(request_folder, "data.csv")
-    csv_retry_count = 0
-    max_csv_retries = 3
-
-    while os.path.exists(csv_path) and is_csv_empty(csv_path) and csv_retry_count < max_csv_retries:
-        logger.warning("data.csv is present but empty. Retrying code execution. Attempt %d", csv_retry_count + 1)
-        execution_result = await run_python_code(response["code"], response["libraries"], folder=request_folder)
-        csv_retry_count += 1
+    
 
     # 6. get answers from llm
     max_attempts = 3
