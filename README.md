@@ -1,6 +1,6 @@
 # Read this file everything will happen on its own.
 
-`Note: try to use linux distro or install WSL(subsystem for linux) on windows for smooth running.`
+`Note: try to use linux distro or install WSL(subsystem for linux) on windows.`
 
 ## 🚀 Features
 - Automatically installs dependencies from `requirements.txt`
