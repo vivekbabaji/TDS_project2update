@@ -114,11 +114,14 @@ async def analyze(request: Request):
     while execution_result["code"] == 0 and count < 3:
         print(f"Step-4: Error occured while scrapping. Tries count = {count}")
         new_question_text = str(question_text) + "previous time this error occured" + str(execution_result["output"])
-        response = await parse_question_with_llm(
-            question_text=new_question_text,
-            uploaded_files=saved_files,
-            folder=request_folder
-        )
+        try:
+            response = await parse_question_with_llm(
+                question_text=new_question_text,
+                uploaded_files=saved_files,
+                folder=request_folder
+            )
+        except Exception as e:
+            print("Step-4: error occured while reading json.", last_n_words(e))
 
         print("Step-3: Response from scrapping: ", last_n_words(response))
 
@@ -176,9 +179,11 @@ async def analyze(request: Request):
         if json_str == 0:
             new_question_text += "follow the structure {'code': '', 'libraries': ''}"
         print("Step-5: Getting execution code from llm. Tries count = ", attempt+1)
-        gpt_ans = await answer_with_data(new_question_text, folder=request_folder)
-        print("Step-5: Response from llm: ",last_n_words(gpt_ans["code"]))
-
+        try:
+            gpt_ans = await answer_with_data(new_question_text, folder=request_folder)
+            print("Step-5: Response from llm: ",last_n_words(gpt_ans["code"]))
+        except Exception as e:
+            print("Step-5: Json parsing error.", last_n_words(e))
         try:
             json_str = 0
             final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
