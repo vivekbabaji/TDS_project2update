@@ -1,6 +1,6 @@
 # Read this file everything will happen on its own.
 
-`Note: try to use linux distro or install WSL(subsystem for linux) on windows for soomth running.`
+`Note: try to use linux distro or install WSL(subsystem for linux) on windows.`
 
 ## 🚀 Features
 - Automatically installs dependencies from `requirements.txt`
@@ -77,8 +77,6 @@ This project loads environment variables from a file named `env_variables.txt` l
    ```
 3. When you run `start.sh`, these variables will be automatically loaded and exported to your environment.
 
-**Note:**  
-If a variable is already set, the script will ask if you want to change it
 
 
 # Testing
