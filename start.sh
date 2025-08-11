@@ -1,140 +1,235 @@
-#!/bin/bash
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+import os
+import uuid
+import aiofiles
+import json
+import logging
 
-# ================= INSTRUCTIONS =================
-echo "=============================================="
-echo " How to get the required credentials:"
-echo ""
-echo " 1. Get your Google API key here:"
-echo "    https://aistudio.google.com/apikey"
-echo ""
-echo " 2. Register at ngrok and get your authtoken:"
-echo "    https://ngrok.com/"
-echo ""
-echo " This script will:"
-echo "    - Install all requirements from requirements.txt"
-echo "    - Install ngrok (if not already installed)"
-echo "    - Start your FastAPI app with uvicorn"
-echo "    - Create a public ngrok URL for your app"
-echo "=============================================="
-echo ""
+from task_engine import run_python_code
+from gemini import parse_question_with_llm, answer_with_data
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+async def serve_frontend():
+    with open("frontend.html", "r") as f:
+        html_content = f.read()
+    return HTMLResponse(content=html_content)
 
 
-# ================= CREATE & ACTIVATE VENV =================
-if [ ! -d "venv" ]; then
-    echo "Creating virtual environment..."
-    python3 -m venv venv
-fi
+UPLOAD_DIR = "uploads"
+os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-echo "Activating virtual environment..."
-# Activate venv depending on shell
-source venv/bin/activate
+# Helper funtion to show last 25 words of string s
+def last_n_words(s, n=25):
+    s = str(s)
+    words = s.split()
+    return ' '.join(words[-n:])
 
-# ================= ADD ENV VARIABLES PERMANENTLY =================
-if [ -f "env_variables.txt" ]; then
-    echo "Adding environment variables to ~/.bashrc ..."
-    while IFS='=' read -r key value; do
-        key=$(echo "$key" | tr -d '\r' | xargs)
-        value=$(echo "$value" | tr -d '\r' | xargs)
-        if [[ ! -z "$key" && ! "$key" =~ ^# ]]; then
-            # Only add if not already present
-            if ! grep -q "^export $key=" ~/.bashrc; then
-                echo "export $key=\"$value\"" >> ~/.bashrc
-            fi
-        fi
-    done < env_variables.txt
-    echo "Sourcing ~/.bashrc to apply changes..."
-    source ~/.bashrc
-fi
-# Flip first and second lines in env_variables.txt
-if [ -f "env_variables.txt" ]; then
-    mapfile -t lines < env_variables.txt
-    if [ "${#lines[@]}" -ge 2 ]; then
-        # Swap first and second lines
-        tmp="${lines[0]}"
-        lines[0]="${lines[1]}"
-        lines[1]="$tmp"
-        printf "%s\n" "${lines[@]}" > env_variables.txt
-    fi
-fi
 
-## Now set environment variables from the (possibly flipped) file
-#if [ -f "env_variables.txt" ]; then
-#    echo "Adding environment variables to ~/.bashrc ..."
-#    while IFS='=' read -r key value; do
-#        key=$(echo "$key" | tr -d '\r' | xargs)
-#        value=$(echo "$value" | tr -d '\r' | xargs)
-#        if [[ ! -z "$key" && ! "$key" =~ ^# ]]; then
-#            if ! grep -q "^export $key=" ~/.bashrc; then
-#                echo "export $key=\"$value\"" >> ~/.bashrc
-#            fi
-#        fi
-#    done < <(cat env_variables.txt)
-#    echo "Sourcing ~/.bashrc to apply changes..."
-#    source ~/.bashrc
-#fi
-echo "GENAI_API_KEY=$GENAI_API_KEY"
-echo "NGROK_AUTHTOKEN=$NGROK_AUTHTOKEN"
+@app.post("/api")
+async def analyze(request: Request):
+    # Create a unique folder for this request
+    request_id = str(uuid.uuid4())
+    request_folder = os.path.join(UPLOAD_DIR, request_id)
+    os.makedirs(request_folder, exist_ok=True)
 
-# ================= GET CREDENTIALS =================
-# Google API Key
-if [ -z "$GENAI_API_KEY" ]; then
-    read -p "Enter your GENAI API key: " GENAI_API_KEY
-fi
-export GENAI_API_KEY=$GENAI_API_KEY
+    # Setup logging for this request
+    log_path = os.path.join(request_folder, "app.log")
+    logger = logging.getLogger(request_id)
+    logger.setLevel(logging.INFO)
+    # Remove previous handlers if any (avoid duplicate logs)
+    if logger.hasHandlers():
+        logger.handlers.clear()
+    file_handler = logging.FileHandler(log_path)
+    formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    # Also log to console
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(formatter)
+    logger.addHandler(stream_handler)
 
-# ngrok Auth Token
-if [ -z "$NGROK_AUTHTOKEN" ]; then
-    read -p "Enter your ngrok authtoken: " NGROK_AUTHTOKEN
-fi
-export NGROK_AUTHTOKEN=$NGROK_AUTHTOKEN
+    logger.info("Step-1: Folder created: %s", request_folder)
 
-# ================= INSTALL REQUIREMENTS (First time only) =================
-if [ ! -f ".deps_installed" ]; then
-    echo "Installing dependencies from requirements.txt (first time only)..."
-    pip install -r requirements.txt
-    touch .deps_installed
-else
-    echo "Dependencies already installed. Skipping pip install."
-fi
-# ================= INSTALL NGROK =================
-if ! command -v ngrok &> /dev/null; then
-    echo "ngrok not found, installing..."
-    pip install pyngrok
-    NGROK_BIN=$(python3 -m pyngrok config get-path)
-else
-    NGROK_BIN=$(command -v ngrok)
-fi
+    form = await request.form()
+    question_text = None
+    saved_files = {}
 
-# ================= CONFIGURE NGROK =================
-$NGROK_BIN config add-authtoken "$NGROK_AUTHTOKEN"
+    # Save all uploaded files to the request folder
+    for field_name, value in form.items():
+        if hasattr(value, "filename") and value.filename:  # It's a file
+            file_path = os.path.join(request_folder, value.filename)
+            async with aiofiles.open(file_path, "wb") as f:
+                await f.write(await value.read())
+            saved_files[field_name] = file_path
 
-# ================= DETECT APP FILE =================
-# Default to "app:main" unless a file called main.py exists
-if [ -f "main.py" ]; then
-    APP_TARGET="main:app"
-elif [ -f "app.py" ]; then
-    APP_TARGET="app:app"
-else
-    echo "Could not detect FastAPI entry file. Please enter module:variable (e.g., app:app)"
-    read -p "Module:Variable => " APP_TARGET
-fi
+            # If it's questions.txt, read its content
+            if field_name == "questions.txt":
+                async with aiofiles.open(file_path, "r") as f:
+                    question_text = await f.read()
+        else:
+            saved_files[field_name] = value
 
-# ================= START UVICORN =================
-echo "Starting uvicorn server..."
-uvicorn $APP_TARGET --reload --host 0.0.0.0 --port 8000 &
-UVICORN_PID=$!
+    # Fallback: If no questions.txt, use the first file as question
+    if question_text is None and saved_files:
+        first_file = next(iter(saved_files.values()))
+        async with aiofiles.open(first_file, "r") as f:
+            question_text = await f.read()
+    
+    logger.info("Step-2: File sent %s", saved_files)
 
-# Trap Ctrl+C to stop uvicorn too
-trap "echo -e '\nStopping servers...'; kill $UVICORN_PID; exit" INT
 
-# Countdown timer (3 seconds)
-echo "Waiting for uvicorn to start..."
-for i in {3..1}; do
-    echo -ne "Starting in $i seconds...\r"
-    sleep 1
-done
-echo -e "\nServer should be ready now."
+    # ✅ 4. Get code steps from LLM
 
-# ================= START NGROK (FOREGROUND) =================
-echo "Starting ngrok tunnel on port 8000..."
-$NGROK_BIN http 8000
+    max_attempts = 3
+    attempt = 0
+    response = None
+    
+    
+    while attempt < max_attempts:
+        logger.info("Step-3: Getting scrap code and metadata from llm. Tries count = %d", attempt)
+        try:
+            response = await parse_question_with_llm(
+                question_text=question_text,
+                uploaded_files=saved_files,
+                folder=request_folder
+            )
+            # Check if response is a valid dict (parsed JSON)
+            if isinstance(response, dict):
+                break
+        except Exception as e:
+            question_text = question_text + str(e)
+            logger.error("Step-3: Error in parsing the result. %s", last_n_words(question_text))
+        attempt += 1
+
+
+    if not isinstance(response, dict):
+        logger.error("Error: Could not get valid response from LLM after retries.")
+        return JSONResponse({"message": "Error: Could not get valid response from LLM after retries."})
+
+
+
+    logger.info("Step-3: Response from scrapping: %s", last_n_words(response))
+
+    # ✅ 5. Execute generated code safely
+    execution_result = await run_python_code(response["code"], response["libraries"], folder=request_folder)
+
+    logger.info("Step-4: Execution result of the scrape code: %s", last_n_words(execution_result["output"]))
+
+    count = 0
+    while execution_result["code"] == 0 and count < 3:
+        logger.error("Step-4: Error occured while scrapping. Tries count = %d", count)
+        new_question_text = str(question_text) + "previous time this error occured" + str(execution_result["output"])
+        try:
+            response = await parse_question_with_llm(
+                question_text=new_question_text,
+                uploaded_files=saved_files,
+                folder=request_folder
+            )
+        except Exception as e:
+            logger.error("Step-4: error occured while reading json. %s", last_n_words(e))
+
+        logger.info("Step-3: Response from scrapping: %s", last_n_words(response))
+
+        execution_result = await run_python_code(response["code"], response["libraries"], folder=request_folder)
+
+        logger.info("Step-4: Execution result of the scrape code: %s", last_n_words(execution_result["output"]))
+
+        count += 1
+
+    if execution_result["code"] == 1:
+        execution_result = execution_result["output"]
+    else:
+        logger.error("error occured while scrapping.")
+        return JSONResponse({"message": "error occured while scrapping."})
+
+    # 6. get answers from llm
+    max_attempts = 3
+    attempt = 0
+    gpt_ans = None
+    response_questions = response["questions"]
+
+    while attempt < max_attempts:
+        logger.info("Step-5: Getting execution code from llm. Tries count = %d", attempt)
+        try:
+            gpt_ans = await answer_with_data(response_questions, folder=request_folder)
+            logger.info("Step-5: Response from llm: %s", last_n_words(gpt_ans["code"]))
+            if isinstance(gpt_ans, dict):
+                break
+        except Exception as e:
+            logger.error("Step-5: Error: %s", e)
+            response_questions += str(e)
+        attempt += 1
+    
+    if not isinstance(gpt_ans, dict):
+        logger.error("Error: Could not get valid response from answer_with_data after retries.")
+        return JSONResponse({"message": "Error: Could not get valid response from answer_with_data after retries."})
+    
+    # 7. Executing code
+    try:
+        logger.info("Step-6: Executing final code. Tries count = 0")
+        final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+        logger.info("Step-6: Executing final code result: %s", last_n_words(final_result["output"]))
+    except Exception as e:
+        logger.error("Step-6: Trying after it caught under except block-wrong json format. Tries count = 1 %s", last_n_words(e))
+        logger.info("Step-5: Getting execution code from llm. Tries count = %d", attempt+1)
+        gpt_ans = await answer_with_data(str(response["questions"])+str("Please follow the json structure"), folder=request_folder)
+        logger.info("Step-5: Response from llm: %s", last_n_words(gpt_ans["code"]))
+        final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+        logger.info("Step-6: Executing final code result: %s", last_n_words(final_result["output"]))
+        
+
+    count = 0
+    json_str = 1
+    while final_result["code"] == 0 and count < 3:
+        logger.error("Step-6: Error occured while executing code. Tries count = %d", count+2)
+        new_question_text = str(response["questions"]) + "previous time this error occured" + str(final_result["output"])
+        if json_str == 0:
+            new_question_text += "follow the structure {'code': '', 'libraries': ''}"
+        logger.info("Step-5: Getting execution code from llm. Tries count = %d", attempt+1)
+        try:
+            gpt_ans = await answer_with_data(new_question_text, folder=request_folder)
+            logger.info("Step-5: Response from llm: %s", last_n_words(gpt_ans["code"]))
+        except Exception as e:
+            logger.error("Step-5: Json parsing error. %s", last_n_words(e))
+        try:
+            json_str = 0
+            final_result = await run_python_code(gpt_ans["code"], gpt_ans["libraries"], folder=request_folder)
+            logger.info("Step-6: Executing final code result: %s", last_n_words(final_result["output"]))
+            json_str = 1
+        except Exception as e:
+            logger.error("Exception occurred: %s", e)
+            count -= 1
+
+        count += 1
+
+    if final_result["code"] == 1:
+        final_result = final_result["output"]
+    else:
+        result_path = os.path.join(request_folder, "result.json")
+        with open(result_path, "r") as f:
+            data = json.load(f)
+        return JSONResponse(content=data)
+
+    result_path = os.path.join(request_folder, "result.json")
+    with open(result_path, "r") as f:
+        try:
+            data = json.load(f)
+            logger.info("Step-7: send result back")
+            return JSONResponse(content=data)
+        except Exception as e:
+            logger.error("Step-7: Error occur while sending result: %s", last_n_words(e))
+            return JSONResponse({"message": f"Error occured while processing reult.json: {e}"})
