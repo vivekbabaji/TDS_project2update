@@ -77,8 +77,6 @@ This project loads environment variables from a file named `env_variables.txt` l
    ```
 3. When you run `start.sh`, these variables will be automatically loaded and exported to your environment.
 
-**Note:**  
-If a variable is already set, the script will ask if you want to change it
 
 
 # Testing
