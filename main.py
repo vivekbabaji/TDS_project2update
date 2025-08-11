@@ -56,11 +56,22 @@ async def analyze(request: Request):
 
 
     # ✅ 4. Get code steps from LLM
-    response = await parse_question_with_llm(
-        question_text=question_text,
-        uploaded_files=saved_files,
-        folder=request_folder
-    )
+
+    try:
+            
+        response = await parse_question_with_llm(
+            question_text=question_text,
+            uploaded_files=saved_files,
+            folder=request_folder
+        )
+    except Exception as e:
+        response = await parse_question_with_llm(
+            question_text=question_text + str(e),
+            uploaded_files=saved_files,
+            folder=request_folder
+        )
+
+
 
     print(response)
 
@@ -93,9 +104,12 @@ async def analyze(request: Request):
         return JSONResponse({"message": "error occured while scrapping."})
 
     # 6. get answers from llm
-    gpt_ans = await answer_with_data(response["questions"], folder=request_folder)
-
-    print(gpt_ans)
+    try:
+        gpt_ans = await answer_with_data(response["questions"], folder=request_folder)
+        print(gpt_ans)
+    except Exception as e:
+        gpt_ans = await answer_with_data(response["questions"] + str(e), folder=request_folder)
+        print(gpt_ans)
 
     # 7. Executing code
     try:

@@ -59,5 +59,8 @@ eg: https://dd0b98d2abc3.ngrok-free.app
 
 eg:  https://dd0b98d2abc3.ngrok-free.app/api
 
+# Testing
+- ### Use curl to test the api as ther is no UI.
+
 
 
