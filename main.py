@@ -190,7 +190,7 @@ async def analyze(request: Request):
                 break
         except Exception as e:
             logger.error("Step-5: Error: %s", e)
-            response_questions += last_n_words(str(e), 50)
+            response_questions = response["questions"] + last_n_words(str(e), 50)
         attempt += 1
     
     if not isinstance(gpt_ans, dict):
