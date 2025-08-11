@@ -115,7 +115,7 @@ async def analyze(request: Request):
             if isinstance(response, dict):
                 break
         except Exception as e:
-            question_text = question_text + str(e)
+            question_text = question_text + last_n_words(str(e), 50)
             logger.error("Step-3: Error in parsing the result. %s", last_n_words(question_text))
         attempt += 1
 
@@ -136,7 +136,7 @@ async def analyze(request: Request):
     count = 0
     while execution_result["code"] == 0 and count < 3:
         logger.error("Step-4: Error occured while scrapping. Tries count = %d", count)
-        new_question_text = str(question_text) + "previous time this error occured" + str(execution_result["output"])
+        new_question_text = str(question_text) + "previous time this error occured" + last_n_words(str(execution_result["output"]), 50)
         try:
             response = await parse_question_with_llm(
                 question_text=new_question_text,
@@ -163,7 +163,7 @@ async def analyze(request: Request):
     csv_path = os.path.join(request_folder, "data.csv")
     csv_retry_count = 0
     max_csv_retries = 3
-    
+
     while os.path.exists(csv_path) and is_csv_empty(csv_path) and csv_retry_count < max_csv_retries:
         logger.warning("data.csv is present but empty. Retrying code execution. Attempt %d", csv_retry_count + 1)
         execution_result = await run_python_code(response["code"], response["libraries"], folder=request_folder)
@@ -184,7 +184,7 @@ async def analyze(request: Request):
                 break
         except Exception as e:
             logger.error("Step-5: Error: %s", e)
-            response_questions += str(e)
+            response_questions += last_n_words(str(e), 50)
         attempt += 1
     
     if not isinstance(gpt_ans, dict):
@@ -209,7 +209,7 @@ async def analyze(request: Request):
     json_str = 1
     while final_result["code"] == 0 and count < 3:
         logger.error("Step-6: Error occured while executing code. Tries count = %d", count+2)
-        new_question_text = str(response["questions"]) + "previous time this error occured" + str(final_result["output"])
+        new_question_text = str(response["questions"]) + "previous time this error occured" + last_n_words(str(final_result["output"]), 50)
         if json_str == 0:
             new_question_text += "follow the structure {'code': '', 'libraries': ''}"
         logger.info("Step-5: Getting execution code from llm. Tries count = %d", attempt+1)
