@@ -82,7 +82,27 @@ If a variable is already set, the script will ask if you want to change it
 
 
 # Testing
-- ### Use curl to test the api as ther is no UI.
+## 🌐 Using the Frontend
 
+A simple HTML frontend is provided for uploading multiple files and viewing API responses.
+
+### How to use:
+
+1. Make sure your FastAPI server is running and accessible (e.g., via ngrok).
+2. Open `https://xxxxxx.ngrok-free.app` in your browser.
+3. Click the "Choose Files" button and select one or more files.
+4. Click "Submit" to upload the files(you can select multiple files) to the backend.
+5. The response from the API will be displayed below the form.
+
+**Note:**  
+- The frontend sends files to the `/api` endpoint of your public URL.
+- You can preview selected file names before uploading.
+
+---
+
+### Troubleshooting
+
+- If you see "No response yet" or an error, check that your FastAPI server is running and accessible.
+- Make sure the public URL matches your ngrok tunnel and ends with `/api` for direct API
 
 
