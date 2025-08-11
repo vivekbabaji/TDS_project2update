@@ -42,7 +42,7 @@ max         8.000000   5.000000
 
 --- JSON Answer Format ---
 
-{}
+{
   "average_temp_c": "number",
   "max_precip_date": "string",
   "min_temp_c": "number",

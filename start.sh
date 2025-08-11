@@ -45,6 +45,33 @@ if [ -f "env_variables.txt" ]; then
     echo "Sourcing ~/.bashrc to apply changes..."
     source ~/.bashrc
 fi
+# Flip first and second lines in env_variables.txt
+if [ -f "env_variables.txt" ]; then
+    mapfile -t lines < env_variables.txt
+    if [ "${#lines[@]}" -ge 2 ]; then
+        # Swap first and second lines
+        tmp="${lines[0]}"
+        lines[0]="${lines[1]}"
+        lines[1]="$tmp"
+        printf "%s\n" "${lines[@]}" > env_variables.txt
+    fi
+fi
+
+# Now set environment variables from the (possibly flipped) file
+if [ -f "env_variables.txt" ]; then
+    echo "Adding environment variables to ~/.bashrc ..."
+    while IFS='=' read -r key value; do
+        key=$(echo "$key" | tr -d '\r' | xargs)
+        value=$(echo "$value" | tr -d '\r' | xargs)
+        if [[ ! -z "$key" && ! "$key" =~ ^# ]]; then
+            if ! grep -q "^export $key=" ~/.bashrc; then
+                echo "export $key=\"$value\"" >> ~/.bashrc
+            fi
+        fi
+    done < <(cat env_variables.txt)
+    echo "Sourcing ~/.bashrc to apply changes..."
+    source ~/.bashrc
+fi
 echo "GENAI_API_KEY=$GENAI_API_KEY"
 echo "NGROK_AUTHTOKEN=$NGROK_AUTHTOKEN"
 
