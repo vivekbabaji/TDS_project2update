@@ -81,7 +81,7 @@ async def analyze(request: Request):
             saved_files[field_name] = file_path
 
             # If it's questions.txt, read its content
-            if field_name == "questions.txt":
+            if field_name == "question.txt":
                 async with aiofiles.open(file_path, "r") as f:
                     question_text = await f.read()
         else:

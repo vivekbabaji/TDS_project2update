@@ -62,6 +62,19 @@ eg: https://dd0b98d2abc3.ngrok-free.app
 
 eg:  https://dd0b98d2abc3.ngrok-free.app/api
 
+`Note: This url will be different every time you restart the server. so use below method to get a static url.`
+
+# Static Url
+- Go to this(https://dashboard.ngrok.com/domains) website and claim you free static url.
+
+- and after that modify the start.sh file's last line. like this
+
+- Before
+![before](photos/before.png)
+
+- After 
+![after](photos/after.png)
+
 ## Environment Variables Setup
 
 This project loads environment variables from a file named `env_variables.txt` located in the project root.
